@@ -12,13 +12,14 @@ class MazeFrame extends Converter {
         const idPart = "chapter" + jsonGenerator.ChapterIndex + "_maze" + this.mazeCount + "_";
 
         let json = "\"frame_type\": \"maze\"," + this.simpleValueKeySerialization(fields);
-        json += "\"frame_id_part\": \"" + idPart + "\"";
+        json += "\"frame_id_part\": \"" + idPart + "\",\"frame_settings\":{\"frame_type\":\"";
 
         bannedIndexes.add(index);
 
         const duplicates = getDuplicateSourceToSource(jsonGenerator.Arrows, [index, 0]);
 
         for (let i = 0; i < duplicates.length; i++) {
+            json += duplicates[i].value.input + " "
             const fullId = idPart + duplicates[i].value.input;
 
             let jsonFrame;
@@ -33,6 +34,6 @@ class MazeFrame extends Converter {
         }
 
         this.mazeCount++;
-        return json;
+        return json + "\"}";
     }
 }
