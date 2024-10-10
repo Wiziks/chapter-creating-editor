@@ -33,7 +33,8 @@ const parametersList = {
 
 function tryGetParameterPair(key, rawValue) {
     key = key.toLowerCase();
-    rawValue = rawValue.toLowerCase().trim();
+    if (key !== "text") rawValue = rawValue.toLowerCase().trim();
+
     if (rawValue !== 'none' && parametersList.hasOwnProperty(key)) {
         const name = parametersList[key].name;
         let value;

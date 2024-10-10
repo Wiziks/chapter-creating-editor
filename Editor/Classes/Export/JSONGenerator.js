@@ -35,6 +35,7 @@ class JSONGenerator {
             new AutoCustomizeFrame(),
             new MazeFrame(),
             new LuckyFrame(),
+            new PhoneTextFrame(),
         ];
 
         this.bannedIndexes = new Set();
@@ -71,13 +72,17 @@ class JSONGenerator {
             const frame = this.csvFrames[this.frameIndexes[i]];
             const type = frame.header.input.toLowerCase();
 
+            var has = false;
             for (const converter of this.converters) {
                 if (converter.frameType === type) {
                     const text = converter.convertToJSON(this.frameIndexes[i], frame, this);
                     this.addFrame(frame.id, text, converter.additionInformation);
+                    has = true;
                     break;
                 }
             }
+            if (has === false)
+                console.log(type);
         }
 
         return "[" + this.joinFrames() + "]";

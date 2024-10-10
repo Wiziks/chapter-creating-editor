@@ -43,6 +43,7 @@
         "Classes/Export/Entities/PropShowFrame.js",
         "Classes/Export/Entities/AutoCustomizeFrame.js",
         "Classes/Export/Entities/MazeFrame.js",
+        "Classes/Export/Entities/PhoneTextFrame.js",
         "Classes/Entities/Bookmark.js",
         "Classes/Undo/Stack.js",
         "Classes/Undo/UndoRedoManager.js",
