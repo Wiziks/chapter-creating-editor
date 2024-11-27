@@ -234,8 +234,7 @@ document.addEventListener('DOMContentLoaded', () => {
             blocks: blocks,
             arrows: arrows,
             checkList: checkList,
-            bookmarks: bookmarks,
-            endBlocks: endBlocks,
+            bookmarks: bookmarks
         };
 
         let jsonString = JSON.stringify(data);
